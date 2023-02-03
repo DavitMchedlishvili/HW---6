@@ -12,6 +12,8 @@ function palindrom (text){
     return true;
 }
 
+
+
 console.log(palindrom("madam"));
 console.log(palindrom("missue"));
 
@@ -20,10 +22,70 @@ console.log(palindrom("missue"));
 
 // task 2
 
+let x = 'cbcbdde';
+let y = 'worsdorw';
+let z = 'worsdorws';
 
-function findUniq() {
+function findUniq(arr) {
+
+    for(let el of arr){
+        if(arr.indexOf(el) === arr.lastIndexOf(el)){
+            return el;
+        }
+    }
+}
+
+console.log(findUniq(x))
+console.log(findUniq(y))
+console.log(findUniq(z))
+
+
+// task 3
+
+
+
+function camelize(str) {
+    let words = str.split(" ");
+    let camelCase = "";
+  
+    for (let i = 0; i < words.length; i++) {
+      let word = words[i];
+      if (i === 0) {
+        camelCase += word.toLowerCase();
+      } else {
+        camelCase += word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      }
+    }
+  
+    return camelCase;
+  }
+  let stra = "sad midis Matarebeli";
+  let camelized = camelize(stra);
+  console.log(camelized); 
+
+
+//   task 4 
+
+function normilize(num){
+if(num <= 0){
+    return 'Invalid number'
+};
+
+if(num % 10 === 1 && num != 11){
+    return num+'st'
+}else if(num % 10 === 2 && num != 12){
+    return num+'nd'
+}else if(num % 10 === 3 && num % 10 != 13){
+    return num+'rd'
+}else return num+'th'
+
 
 }
+
+console.log(normilize(1124))
+console.log(normilize(123))
+console.log(normilize(12))
+console.log(normilize(21))
 
 
 
@@ -50,11 +112,11 @@ console.log(findMax(arr1));
 
 
 let maxValue = Object.values(findMax(arr1))
-let max = Math.max(...maxValue)
+let max = Math.max(...maxValue);
 console.log(max);
 
 
-/////////////////////////////////
+
 
 // task 6
 
@@ -80,21 +142,29 @@ console.log(delDuplicate(array1,array2));
 
 
 
-// task 8
+// task 9 
 
-// let rame =  [0, 0, 0, 0, 1, 0, 0, 0, 0]
-// function countZero(array) {
-//     if(array.includes(0) && array.lenght >= 4){
-//         for(let num of array){
-//         let numZero = num != 0
-//             if (numZero){
-//                 let splitPoint = array.split(numZero)
-//                 return splitPoint
-//             }
-            
-//         }
-//     }else if()
+
+function sumOfDigits(n) {
+    if (n === 0){
+        return 0;
+    } else return (n % 10) + sumOfDigits(Math.floor(n / 10));
+  }
+  console.log(sumOfDigits(4)); 
+
+
+
+
+  // function sumOfDigits(n) {
+//     let converted = n.toString()
+//     let splitted = converted.split('')
+//     return splitted.reduce((acc,curr) => {
+//         return acc + +curr;
+//     }, 0)
+
+
+
 // }
 
 
-// console.log(countZero(rame))
+// console.log(sumOfDigits(123))
